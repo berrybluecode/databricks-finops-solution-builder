@@ -13,12 +13,12 @@ blueprint and finding relevant public, community, and internal solution assets.
 - FinOps goals: tracking, allocation, optimization, guardrails, forecasting, and unit economics
 - Architecture, tagging, system-table SQL, and implementation guidance
 - Ranked solution matches based on category, product area, FinOps action, and readiness
-- Source-scope filters for internal, Databricks public, and community assets
+- Source-scope filters for Databricks public, community, and Contact Databricks Team assets
 - Copyable blueprint and SQL starter query
 - Responsive static UI with no backend or build step
 
-Internal Databricks solution URLs are intentionally excluded from the published
-source. Contact your Databricks Account team for access or more information.
+Assets labeled Contact Databricks Team do not include public URLs. Contact your
+Databricks Account team for access or more information.
 
 ## Run locally
 
