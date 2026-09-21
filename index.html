@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Generate an actionable Databricks FinOps implementation blueprint with tags, system tables, SQL and source references.">
+  <title>Databricks FinOps Solution Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23192332'/%3E%3Cpath d='M14 18h36M14 32h26M14 46h18' stroke='%23ff5f46' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span>DB</span><div><strong>FinOps solution builder</strong><small>Databricks implementation, not taxonomy theory</small></div></div>
+    <div class="top-actions"><button id="resetBtn" class="ghost">Reset</button><a class="download-btn" href="https://github.com/berrybluecode/databricks-finops-solution-builder/archive/refs/heads/main.zip">Download source</a><button id="copyBtn" class="primary">Copy blueprint</button></div>
+  </header>
+  <main>
+    <aside class="config">
+      <div class="config-head"><p class="eyebrow">CONFIGURE</p><h1>What are you solving?</h1><p>Choose a product area, detailed product category and FinOps goal. Allocation level appears only when needed.</p></div>
+      <div id="selectors" class="selectors"></div>
+      <div class="selection-line"><span>Selection</span><p id="selectionText"></p></div>
+    </aside>
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><p class="eyebrow">RECOMMENDED BLUEPRINT</p><h2 id="blueprintTitle"></h2><p id="blueprintSummary"></p></div>
+        <span id="fitBadge" class="fit-badge"></span>
+      </div>
+      <nav class="tabs" aria-label="Blueprint sections">
+        <button class="active" data-tab="architecture">Architecture</button>
+        <button data-tab="tags">Tagging strategy</button>
+        <button data-tab="sql">System tables & SQL</button>
+        <button data-tab="delivery">Implementation</button>
+        <button data-tab="matches">Solution matches</button>
+        <button data-tab="sources">References</button>
+      </nav>
+      <div id="architecture" class="tab-panel active">
+        <div class="flow" id="flow"></div>
+        <div class="two-col">
+          <article class="card"><div class="card-title"><span>01</span><h3>Data foundation</h3></div><ul id="dataFoundation"></ul></article>
+          <article class="card"><div class="card-title"><span>02</span><h3>Decision logic</h3></div><ul id="decisionLogic"></ul></article>
+          <article class="card"><div class="card-title"><span>03</span><h3>Controls</h3></div><ul id="controls"></ul></article>
+          <article class="card"><div class="card-title"><span>04</span><h3>Operational output</h3></div><ul id="outputs"></ul></article>
+        </div>
+      </div>
+      <div id="tags" class="tab-panel">
+        <div class="section-intro"><div><h3>Tag contract</h3><p>Use one controlled vocabulary across jobs, clusters, warehouses, endpoints and serverless policies.</p></div><button class="copy-small" data-copy="tagTable">Copy tags</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Tag</th><th>Example</th><th>Required</th><th>Purpose</th></tr></thead><tbody id="tagTable"></tbody></table></div>
+        <div class="callout"><strong>Enforcement pattern</strong><p id="tagEnforcement"></p></div>
+      </div>
+      <div id="sql" class="tab-panel">
+        <div class="section-intro"><div><h3>System-table implementation</h3><p id="sqlIntro"></p></div><button id="copySql" class="copy-small">Copy SQL</button></div>
+        <div id="systemTables" class="table-chips"></div>
+        <pre class="code"><code id="sqlCode"></code></pre>
+        <p class="code-note" id="sqlNote"></p>
+      </div>
+      <div id="delivery" class="tab-panel">
+        <div class="section-intro"><div><h3>Delivery plan</h3><p>Build the smallest usable FinOps product, then automate the control loop.</p></div></div>
+        <ol id="deliverySteps" class="steps"></ol>
+        <div class="ownership"><span>Recommended owner</span><strong id="ownerText"></strong><p id="ownerReason"></p></div>
+      </div>
+      <div id="matches" class="tab-panel">
+        <div class="section-intro match-intro">
+          <div><h3>Best-fit solution portfolio</h3><p>Ranked by product-area coverage, FinOps goal and implementation readiness. Use the first result as the base, then add a specialist control or telemetry asset.</p></div>
+          <div class="match-summary"><strong id="matchCount"></strong><span>shown / high confidence</span></div>
+        </div>
+        <div class="match-toolbar">
+          <div>
+            <span class="toolbar-label">Source scope</span>
+            <div id="scopeFilters" class="scope-filters"></div>
+          </div>
+          <p id="matchSelection"></p>
+        </div>
+        <div id="solutionMatches" class="match-grid"></div>
+        <div class="coverage-note">
+          <strong>Coverage rule</strong>
+          <p>The simple selectors use broad product areas; the matcher retains detailed workload tags behind the scenes. It ranks functional fit, not vendor certification. Preview, field and community assets include a readiness label and caveat.</p>
+        </div>
+      </div>
+      <div id="sources" class="tab-panel">
+        <div class="section-intro"><div><h3>Implementation references</h3><p>Official documentation and maintained GitHub projects relevant to this blueprint.</p></div></div>
+        <div id="sourceCards" class="source-grid"></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
